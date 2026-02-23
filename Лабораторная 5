@@ -1,0 +1,63 @@
+import java.util.Scanner;
+class Primer{
+    int A;
+    int B;
+    int X;
+    Primer (int A, int B, int X){
+        this.A=A;
+        this.B=B;
+        this.X=X;
+    }
+    void Sum(){
+        System.out.println("Сумма 3x+5: " + (3*this.X+5));
+    }
+    void Del() {
+        if (this.A != this.B) {
+            double result = (double)(this.A + this.B) / (this.A - this.B);
+            System.out.println("Деление (a+b)/(a-b): "+ result);
+        }
+        else {
+            System.out.println("Деление невозможно: A равно B");
+        }
+    }
+    long Factor() {
+        if (this.B == 0) {
+            System.out.println("B не может быть 0");
+            return -1;
+        }
+        int s = this.A * this.X;
+        if (s % this.B != 0) {
+            System.out.println("Результат (A*X/B) не является целым числом, факториал не определён");
+            return -1;
+        }
+        int n = s / this.B;
+        if (n < 0) {
+            System.out.println("Факториал отрицательного числа не определён");
+            return -1;
+        }
+        if (n == 0) return 1;
+        long result = 1;
+        for (int i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+}
+    public class Main {
+    public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Введите А: ");
+        int a = scan.nextInt();
+        System.out.print("Введите В: ");
+        int b = scan.nextInt();
+        System.out.print("Введите Х: ");
+        int x = scan.nextInt();
+        Primer test = new Primer(a,b,x);
+        test.Sum();
+        test.Del();
+        long factorialResult = test.Factor();
+        if (factorialResult != -1) {
+            System.out.println("Факториал (ax/b)!: " + factorialResult);
+        }
+    }
+}
