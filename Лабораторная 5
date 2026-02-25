@@ -54,10 +54,13 @@ class Primer{
         int x = scan.nextInt();
         Primer test = new Primer(a,b,x);
         test.Sum();
-        test.Del();
-        long factorialResult = test.Factor();
+        Primer del = new Primer(a,b,x);
+        del.Del();
+        Primer fac = new Primer(a,b,x);
+        long factorialResult = fac.Factor();
         if (factorialResult != -1) {
             System.out.println("Факториал (ax/b)!: " + factorialResult);
         }
     }
 }
+
